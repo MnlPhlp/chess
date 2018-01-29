@@ -65,9 +65,9 @@ public class Rules {
 				case PAWN :
 					// Hitting another player diagonally
 					if (Math.abs(x1 - x2) == 1 && color2 != "none") {
-						if (color1 == "white" && (y1 - y2) == 1) {
+						if (color1.equals("white") && (y1 - y2) == 1) {
 							allowed = true;
-						} else if (color1 == "black" && (y1 - y2) == -1) {
+						} else if (color1.equals("black") && (y1 - y2) == -1) {
 							allowed = true;
 						}
 					}
@@ -75,18 +75,18 @@ public class Rules {
 					// moving forward normally
 					if (color2 == "none") {
 						if (x1 == x2) {
-							if (color1 == "white" && (y1 - y2) == 1) {
+							if (color1.equals("white") && (y1 - y2) == 1) {
 								allowed = true;
-							} else if (color1 == "black" && (y1 - y2) == -1) {
+							} else if (color1.equals("black") && (y1 - y2) == -1) {
 								allowed = true;
 							}
 						}
 						// allow to move two fields at the beginning
 						if (x1 == x2) {
-							if (color1 == "white" && (y1 - y2) == 2 && y1 == 6) {
+							if (color1.equals("white") && (y1 - y2) == 2 && y1 == 6) {
 								allowed = true;
 							}
-							if (color1 == "black" && (y1 - y2) == -2 && y1 == 1) {
+							if (color1.equals("black") && (y1 - y2) == -2 && y1 == 1) {
 								allowed = true;
 							}
 						}
@@ -153,7 +153,7 @@ public class Rules {
 				freepath = false;
 			}
 			i++;
-			if (board[x1 + i][y1].getColor() == board[x1][y1].getColor()) {
+			if (board[x1 + i][y1].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 		}
