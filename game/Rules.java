@@ -73,7 +73,7 @@ public class Rules {
 					}
 
 					// moving forward normally
-					if (color2 == "none") {
+					if (color2.equals("none")) {
 						if (x1 == x2) {
 							if (color1.equals("white") && (y1 - y2) == 1) {
 								allowed = true;
@@ -164,7 +164,7 @@ public class Rules {
 				freepath = false;
 			}
 			i++;
-			if (board[x1 - i][y1].getColor() == board[x1][y1].getColor()) {
+			if (board[x1 - i][y1].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 		}
@@ -188,7 +188,7 @@ public class Rules {
 				freepath = false;
 			}
 			i++;
-			if (board[x1][y1 + i].getColor() == board[x1][y1].getColor()) {
+			if (board[x1][y1 + i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 		}
@@ -199,7 +199,7 @@ public class Rules {
 				freepath = false;
 			}
 			i++;
-			if (board[x1][y1 - i].getColor() == board[x1][y1].getColor()) {
+			if (board[x1][y1 - i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 		}
@@ -223,7 +223,7 @@ public class Rules {
 				freepath = false;
 			}
 			i++;
-			if (board[x1 + i][y1 + i].getColor() == board[x1][y1].getColor()) {
+			if (board[x1 + i][y1 + i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 		}
@@ -234,7 +234,7 @@ public class Rules {
 				freepath = false;
 			}
 			i++;
-			if (board[x1 + i][y1 - i].getColor() == board[x1][y1].getColor()) {
+			if (board[x1 + i][y1 - i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 		}
@@ -245,7 +245,7 @@ public class Rules {
 				freepath = false;
 			}
 			i++;
-			if (board[x1 - i][y1 - i].getColor() == board[x1][y1].getColor()) {
+			if (board[x1 - i][y1 - i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 		}
@@ -256,7 +256,7 @@ public class Rules {
 				freepath = false;
 			}
 			i++;
-			if (board[x1 - i][y1 + i].getColor() == board[x1][y1].getColor()) {
+			if (board[x1 - i][y1 + i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 		}
