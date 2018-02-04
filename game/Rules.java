@@ -60,11 +60,11 @@ public class Rules {
 		// check if the move is allowed
 		boolean allowed = false;
 		// check if the move is allowed according to the pieces moves
-		if (color1 != color2) {
+		if (!color1.equals(color2)) {
 			switch (type1) {
 				case PAWN :
 					// Hitting another player diagonally
-					if (Math.abs(x1 - x2) == 1 && color2 != "none") {
+					if (Math.abs(x1 - x2) == 1 && !color2.equals("none")) {
 						if (color1.equals("white") && (y1 - y2) == 1) {
 							allowed = true;
 						} else if (color1.equals("black") && (y1 - y2) == -1) {
@@ -149,7 +149,7 @@ public class Rules {
 		// check if piece is standing in the way
 		// check for moving right
 		while (i < (x2 - x1) && freepath) {
-			if (board[x1 + i][y1].getColor() != "none" && board[x1 + i][y1].getColor() != board[x1][y1].getColor()) {
+			if (!board[x1 + i][y1].getColor().equals("none") && !board[x1 + i][y1].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 			i++;
@@ -160,7 +160,7 @@ public class Rules {
 
 		// check for moving left
 		while (i < x1 - x2 && freepath) {
-			if (board[x1 - i][y1].getColor() != "none" && board[x1 - i][y1].getColor() != board[x1][y1].getColor()) {
+			if (!board[x1 - i][y1].getColor().equals("none") && !board[x1 - i][y1].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 			i++;
@@ -184,7 +184,7 @@ public class Rules {
 		// check if piece is standing in the way
 		// check for moving down
 		while (i < (y2 - y1) && freepath) {
-			if (board[x1][y1 + i].getColor() != "none" && board[x1][y1 + i].getColor() != board[x1][y1].getColor()) {
+			if (!board[x1][y1 + i].getColor().equals("none") && !board[x1][y1 + i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 			i++;
@@ -195,7 +195,7 @@ public class Rules {
 
 		// check for moving up
 		while (i < y1 - y2 && freepath) {
-			if (board[x1][y1 - i].getColor() != "none" && board[x1][y1 - i].getColor() != board[x1][y1].getColor()) {
+			if (!board[x1][y1 - i].getColor().equals("none") && !board[x1][y1 - i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 			i++;
@@ -219,7 +219,7 @@ public class Rules {
 		// check if piece is standing in the way
 		// check for moving down right
 		while (i < (y2 - y1) && i < (x2 - x1) && freepath) {
-			if (board[x1 + i][y1 + i].getColor() != "none" && board[x1 + i][y1 + i].getColor() != board[x1][y1].getColor()) {
+			if (!board[x1 + i][y1 + i].getColor().equals("none") && !board[x1 + i][y1 + i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 			i++;
@@ -230,7 +230,7 @@ public class Rules {
 
 		// check for moving up right
 		while (i < (y1 - y2) && i < (x2 - x1) && freepath) {
-			if (board[x1 + i][y1 - i].getColor() != "none" && board[x1 + i][y1 - i].getColor() != board[x1][y1].getColor()) {
+			if (!board[x1 + i][y1 - i].getColor().equals("none") && !board[x1 + i][y1 - i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 			i++;
@@ -241,7 +241,7 @@ public class Rules {
 
 		// check for moving up left
 		while (i < (y1 - y2) && i < (x1 - x2) && freepath) {
-			if (board[x1 - i][y1 - i].getColor() != "none" && board[x1 - i][y1 - i].getColor() != board[x1][y1].getColor()) {
+			if (!board[x1 - i][y1 - i].getColor().equals("none") && !board[x1 - i][y1 - i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 			i++;
@@ -252,7 +252,7 @@ public class Rules {
 
 		// check for moving down left
 		while (i < (y2 - y1) && i < (x1 - x2) && freepath) {
-			if (board[x1 - i][y1 + i].getColor() != "none" && board[x1 - i][y1 + i].getColor() != board[x1][y1].getColor()) {
+			if (!board[x1 - i][y1 + i].getColor().equals("none") && !board[x1 - i][y1 + i].getColor().equals(board[x1][y1].getColor())) {
 				freepath = false;
 			}
 			i++;
@@ -270,15 +270,15 @@ public class Rules {
 
 	public void exchangePawn(int x1, int y1) {
 		// check if a pawn reached end of the board
-		if (board[x1][y1].getType() == PieceType.PAWN) {
+		if (board[x1][y1].getType().equals(PieceType.PAWN)) {
 			int response = -1;
 			// exchange white pawn on the top end of the board
-			if (board[x1][y1].getColor() == "white" && y1 == 0) {
+			if (board[x1][y1].getColor().equals("white") && y1 == 0) {
 				String[] options = new String[]{"Queen", "Bishop", "Rook", "Knight"};
 				response = JOptionPane.showOptionDialog(null, "select a piece:", "Piece", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 			}
 			// exchange black pawn on the bottom end of the board
-			if (board[x1][y1].getColor() == "black" && y1 == 7) {
+			if (board[x1][y1].getColor().equals("black") && y1 == 7) {
 				String[] options = new String[]{"Queen", "Bishop", "Rook", "Knight"};
 				response = JOptionPane.showOptionDialog(null, "select a piece:", "Piece", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 			}
@@ -324,7 +324,7 @@ public class Rules {
 		// check if piece at x2 y2 could hit king
 		for (int x2 = 0; x2 < 8; x2++) {
 			for (int y2 = 0; y2 < 8; y2++) {
-				if (board[x2][y2].getColor() != color && validateMove(x2, y2, x1, y1)) {
+				if (!board[x2][y2].getColor().equals(color) && validateMove(x2, y2, x1, y1)) {
 					// mark field of the King as red
 					field[y1][x1 + 1].setBackground(Color.red);
 					check = true;
