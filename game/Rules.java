@@ -315,7 +315,7 @@ public class Rules {
 				y1++;
 			}
 			// end search if king is at current position
-			if (board[x1][y1].getColor() == color && board[x1][y1].getType() == PieceType.KING) {
+			if (board[x1][y1].getColor().equals(color) && board[x1][y1].getType().equals(PieceType.KING)) {
 				search = false;
 			} else {
 				x1++;
